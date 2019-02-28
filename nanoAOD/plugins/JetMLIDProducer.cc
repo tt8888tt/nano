@@ -34,7 +34,10 @@ JetMLIDProducer::produce( edm::Event& iEvent, const edm::EventSetup& iSetup)
   // saving all variables
   vector<float> jet_delta, jet_axis2, jet_axis1, jet_ptD,
     jet_cpt1, jet_cpt2, jet_cpt3,
-    jet_npt1, jet_npt2, jet_npt3;
+    jet_npt1, jet_npt2, jet_npt3,
+    jet_JetAngularity, jet_GeoMoment, jet_HalfPtMoment,
+    jet_DRSquareMoment, jet_SmallDRPT, jet_MassMoment,
+    jet_PTSquare, jet_MyMoment;
   vector<int> jet_cmult, jet_nmult;
 
   for (auto jet = jets->begin();  jet != jets->end(); ++jet) {
@@ -171,7 +174,7 @@ JetMLIDProducer::produce( edm::Event& iEvent, const edm::EventSetup& iSetup)
   jetID_table->addColumn<float>("smallDRPT",     jet_SmallDRPT,      "smallDRPT",      nanoaod::FlatTable::FloatColumn);
   jetID_table->addColumn<float>("massMoment",    jet_MassMoment,     "massMoment",     nanoaod::FlatTable::FloatColumn);
   jetID_table->addColumn<float>("pTSquare",      jet_PTSquare,       "pTSquare",       nanoaod::FlatTable::FloatColumn);
-  jetID_table->addColumn<float>("myMoment",      jet_myMoment,       "myMoment",       nanoaod::FlatTable::FloatColumn);
+  jetID_table->addColumn<float>("myMoment",      jet_MyMoment,       "myMoment",       nanoaod::FlatTable::FloatColumn);
 
   jetID_table->addColumn<float>("cpt1",jet_cpt1,"cpt1",nanoaod::FlatTable::FloatColumn);
   jetID_table->addColumn<float>("cpt2",jet_cpt2,"cpt2",nanoaod::FlatTable::FloatColumn);
